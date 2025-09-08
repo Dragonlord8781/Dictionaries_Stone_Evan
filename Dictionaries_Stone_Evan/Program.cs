@@ -7,8 +7,9 @@ namespace Dictionaries_Stone_Evan
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Program: 21");
+            Console.WriteLine("Program: 21"); //writes program #
 
+            //creates dictionary: topGames with my top 10 games
             Dictionary<int, string> topGames = new Dictionary<int, string>();
             topGames.Add(1, "MonsterHunter: World");
             topGames.Add(2, "MonsterHunter: Wilds");
@@ -21,20 +22,23 @@ namespace Dictionaries_Stone_Evan
             topGames.Add(9, "Halo: Infinite");
             topGames.Add(10, "Warhammer 40k: Space Marine II");
 
+            //for each kv pair in topGames, write the key and value in console
             foreach(KeyValuePair<int, string> kvp in topGames)
             {
                 Console.WriteLine($"Key: {kvp.Key}, Value; {kvp.Value}");
             }
 
+            //if topGame contains a 1 key, write what my favorite game is
             if (topGames.ContainsKey(1)) 
             {
                 Console.WriteLine($"My favorite game is {topGames[1]}!");
             }
 
-            string result = "";
+            string result = ""; //creates empty result string
 
-            topGames.TryGetValue(11, out result);
+            topGames.TryGetValue(11, out result); //trys to get the value of a kvp with the key "11"
 
+            //if result does not = "", then write result, if else then state there is no game with key "11"
             if (result != "")
             {
                 Console.WriteLine(result);
@@ -43,20 +47,25 @@ namespace Dictionaries_Stone_Evan
             {
                 Console.WriteLine("There is no game in the eleventh position.");
             }
-
+             //if topGame contain a 5 key, replace its value with "Skylanders: SuperChargers"
             if (topGames.ContainsKey(5))
             {
                 topGames[5] = "Skylanders: Superchargers";
             }
 
+            //writes the new 5 value
             Console.WriteLine(topGames[5]);
-
+            
+            //creates a hashtable with topGames's values
             Hashtable hashtable = new Hashtable(topGames);
 
+            //create the string favGame and give it the value of hashtable's 1
             string favGame = (string)hashtable[1];
 
+            //writes the favorite game from hashtable
             Console.WriteLine($"Favorite Game: {favGame}");
 
+            //creates a new hastable but for capitals, and assigns it kvp
             Hashtable capitals = new Hashtable()
             {
                 { "Oklahoma", "Oklahoma City" },
@@ -65,12 +74,13 @@ namespace Dictionaries_Stone_Evan
                 {"Florida", "Tallahassee" }
             };
 
+            //for each kvp in capitals, write its key and value
             foreach (DictionaryEntry kvp in capitals)
             { 
                 Console.WriteLine($"Key: {kvp.Key}, Value: {kvp.Value}");
             }
 
-            capitals.Clear();
+            capitals.Clear();//clears the capital hashtable
         }
     }
 }
